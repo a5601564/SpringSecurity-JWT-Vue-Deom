@@ -60,8 +60,8 @@ public class JwtLoginFilter extends AbstractAuthenticationProcessingFilter {
         // 获取 User 对象
         // readValue 第一个参数 输入流，第二个参数 要转换的对象
         User user = new ObjectMapper().readValue(httpServletRequest.getInputStream(), User.class);
-        // 验证码验证
-        verifyCodeService.verify(httpServletRequest.getSession().getId(), user.getVerifyCode());
+//        // 验证码验证
+//        verifyCodeService.verify(httpServletRequest.getSession().getId(), user.getVerifyCode());
         // 对 html 标签进行转义，防止 XSS 攻击
         String username = user.getUsername();
         username = HtmlUtils.htmlEscape(username);
